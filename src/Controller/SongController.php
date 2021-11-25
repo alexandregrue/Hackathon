@@ -24,7 +24,7 @@ class SongController extends AbstractController
             $song = $songManager->selectRandomSong($askedLyricsList);
         }
 
-        if (isset($_SESSION["song"])) {
+        if (isset($song["id"])) {
             // Stock the variables in $_Session to fetch them in the result page
             $numberOfWords = substr_count($song["lyrics_to_guess"], " ");
             $time1 = '5s';

@@ -15,7 +15,7 @@
     <section class="song">
         <div class="cover-song">
             <div class="circular">
-                <div class="inner" style="--img: {{ song.cover_link }};"></div>
+                <div class="inner"><img src="{{ song.cover_link }}" alt=""></div>
                 <div class="circle">
                     <div class="bar left" style="--value1:{{ time1 }}; --value2:{{ time2 }};">
                         <div class="progress"></div>
@@ -25,9 +25,8 @@
                     </div>
                 </div>
             </div>
-            {{ dump(song) }}
-            <img src="{{ song.cover_link }}" alt="cover of the song">
         </div>
+
         <div>
             <h1>{{ song.title }}</h1>
             <h2>{{ song.artist }}</h2>
@@ -44,9 +43,9 @@
         </div>
     </section>
     <section class="answer">
-        <form method="post" action="/">
+        <form method="post" id="form" action="/">
             <input type="text" name="user_answer" placeholder="Guess the lyrics...">
-            <input type="submit" value="&#10003;">
+            <input type="submit" id="form-submit" value="&#10003;">
         </form>
     </section>
 </main>
@@ -55,8 +54,36 @@
 {% endblock %}
 
 {% block javascript %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"
+    integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
 <script>
-    const axios = require('axios')
+    let formSubmit = document.getElementById("form-submit");
+    let answer = document.getElementById("form").value;
+
+    formSubmit.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        const answer = form;
+        alert(typeof(answer));
+        //alert(JSON.stringify(answer, null, 4));
+        /*
+        var payload = {
+        a: 1,
+        b: 2
+        };
+
+        var data = new FormData();
+        data.append( "json", JSON.stringify( payload ) );
+
+        fetch("/echo/json/",
+        {
+            method: "POST",
+            body: data
+        })
+        .then(function(res){ return res.json(); })
+        .then(function(data){ alert( JSON.stringify( data ) ) })
+        */
+    });
 </script>
 
 {% endblock %}

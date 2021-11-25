@@ -30,7 +30,6 @@ body{
     background-image: url(../images/people_background.png);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: center;
     width: 100%;
     height: 35%;
     position: fixed;
@@ -38,7 +37,7 @@ body{
 }
 
 header {
-    height: 10vh;
+    height: 5.25rem;
     width: 100%;
     background: #350A5F;
     display: flex;
@@ -47,23 +46,35 @@ header {
 }
 
 .img-header img {
-    height: 15vmin;
+    width: 5.69rem;
+    height: 3.625rem;
     width: auto;
 }
 
 .song {
-    height: 30vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 2px solid black;
+    margin: 3.75rem auto 0 auto;
 }
 
-.song img {
-    height: 30vmin;
-    width: 30vmin;
-    border: 1px solid black;
+.song h1 {
+    font-size: 1.2rem;
+    font-family: var(--title-font);
+    margin-top: 1rem;
+    color: #FFFFFF;
+    text-align: center;
+
 }
+.song h2 {
+    font-size: 0.9em;
+    font-family: var(--title-font);
+    margin-top: 0.25rem;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+
 
 .lyrics {
     height: 50vh;
@@ -89,33 +100,30 @@ header {
 }
 
 form input[type=text] {
-    width: 80vw;
-    height: 12vmin;
+    width: 20.563rem;
+    height: 2.688rem;
 }
 
 form input[type=submit] {
-    width: 15vw;
-    height: 12vmin;
+    width: 2.563rem;
+    height: 2.563rem;
     background: #7CF05F;
 }
 
 .circular{
-    height:100px;
-    width: 100px;
+    height: 12rem;
+    width: 12rem;
     position: relative;  
 }
 
-.circular .inner{
+.circular .inner img{
     position: absolute;
     z-index: 6;
     top: 50%;
     left: 50%;
-    height: 80px;
-    width: 80px;
-    margin: -40px 0 0 -40px;
-    background-image: url('../../var(--img)');
-    background-position: center;
-    background-size: cover;
+    height: 10rem;
+    width: 10rem;
+    margin: -5em 0 0 -5em;
 }
 
 .circular .bar {
@@ -124,18 +132,18 @@ form input[type=submit] {
     width: 100%;
     background: #fff;
     -webkit-border-radius: 100%;
-    clip: rect(0px, 100px, 100px, 50px);
+    clip: rect(0px, 12rem, 12rem, 6rem);
 }
 
 .circle .left {
     left: -.5%;
-    width: 100px;
-    height: 100px;
+    width: 12rem;
+    height: 12rem;
 }
 
 .circle .right {
-    width: 100px;
-    height: 100px;
+    width: 12rem;
+    height: 12rem;
 }
 
 .circle .bar .progress{
@@ -143,8 +151,8 @@ form input[type=submit] {
     height: 100%;
     width: 100%;
     -webkit-border-radius: 100%;
-    clip: rect(0px, 50px, 100px, 0px);
-    background: #4158d0;
+    clip: rect(0px, 6rem, 12rem, 0px);
+    background: #1D3E60;
 }
 
 .circle .left .progress {
