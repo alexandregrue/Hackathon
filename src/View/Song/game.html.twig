@@ -58,12 +58,11 @@
     integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
 <script>
     let formSubmit = document.getElementById("form-submit");
-    let answer = document.getElementById("form").value;
-
+    
     formSubmit.addEventListener('click', (event) => {
         event.preventDefault();
-
-        const answer = form;
+        
+        let answer = document.getElementById("form-submit").value;
         alert(typeof(answer));
         //alert(JSON.stringify(answer, null, 4));
         /*
