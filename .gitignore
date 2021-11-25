@@ -6,4 +6,3 @@ db.php
 .idea
 .vscode
 /public/assets/songs/*.*
-/public/assets/images/covers/*.*
