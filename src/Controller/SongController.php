@@ -6,7 +6,7 @@ use App\Model\SongManager;
 
 class SongController extends AbstractController
 {
-    public function show()
+    public function getSong()
     {
         // Copyright Morgane
         $songManager = new SongManager();
@@ -27,7 +27,7 @@ class SongController extends AbstractController
         if (isset($song['id'])) {
             // Stock the variables in $_Session to fetch them in the result page
             $_SESSION["song"] = $song;
-            return $this->twig->render('Song/index.html.twig', [
+            return $this->twig->render('Song/game.html.twig', [
                 'song' => $song,
                 'session' => $_SESSION,
             ]);
