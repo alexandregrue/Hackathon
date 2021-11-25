@@ -2,9 +2,9 @@
 
 namespace App\Model;
 
-class ItemManager extends AbstractManager
+class SongManager extends AbstractManager
 {
-    public const TABLE = 'item';
+    public const TABLE = 'song';
 
     /**
      * Insert new item in database
