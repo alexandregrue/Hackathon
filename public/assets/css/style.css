@@ -1,0 +1,85 @@
+*{
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+body{
+    background: linear-gradient(180deg, #6624A4 0%, rgba(115, 36, 137, 0.791667) 38.54%, rgba(228, 66, 66, 0.81) 65.62%, #DB4848 100%) no-repeat center center fixed;
+}
+
+.logo_lyrics{
+    background-image: url(../images/lyrics_logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 10.375rem; 
+    width: 16.2rem;
+    margin-top: 4rem;
+}
+
+.slogan {
+    font-family: 'Magra', sans-serif;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 33px;
+    text-align: center;
+    margin-top: 4.5rem;
+}
+
+.start_game {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background: #1D3E60;
+    width: 12.75rem;
+    height: 4rem;
+    border-radius: 9px;
+    margin-top: 2.8rem;
+
+
+
+}
+.start_game a{
+    font-family: Magra;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 21px;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.rules {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 9.625rem;
+    height: 2.25rem;
+    margin-top: 1.25rem;
+    background: #32154B;
+    border-radius: 9px;
+
+
+
+    
+}
+
+.rules a{
+    font-family: Magra;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    color: #FFFFFF;
+
+}
+
+.people_background{
+    background-image: url(../images/people_background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 35%;
+    position: fixed;
+    bottom: 0;
+}
+
+@
