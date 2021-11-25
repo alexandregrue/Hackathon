@@ -1,26 +1,30 @@
 {% extends 'layout.html.twig' %}
 
-{% block content %}
-    <div class="logo_lyrics">
+{% block stylesheet %}
+<link rel="stylesheet" href="/assets/css/style.css">
+{% endblock %}
 
-    </div>
-    <section class="homepage">
+{% block content %}
+<div class="logo_lyrics">
+
+</div>
+<section class="homepage">
     <h1 class="slogan">
         Have a break,<br>
         Have a lyrics break!
     </h1>
 
     <div class="start_game">
-    <a href="/game">Start the game</a><br>
+        <a href="/game">Start the game</a><br>
     </div>
 
     <div class="rules">
-    <a href="/rules">How to play</a>
+        <a href="/rules">How to play</a>
     </div>
-    </section>
-    <div class="people_background">
-{#         <img src="/assets/images/people_background.png" alt="">
- #}    </div>
+</section>
+<div class="people_background">
+    {#         <img src="/assets/images/people_background.png" alt="">#}
+</div>
 
 
 
