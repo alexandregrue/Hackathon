@@ -1,13 +1,62 @@
 {% extends 'layout.html.twig' %}
 
-{% block content %}
-<div class="logo_lyrics_game">
+{% block stylesheet %}
+<link rel="stylesheet" href="/assets/css/style_game.css">
+{% endblock %}
 
-</div>
-<section class="song">
-    
-</section>
+{% block content %}
+{# {{ dump(time1) }}
+ #}<header>
+    <div class="img-header">
+        <img src="/assets/images/lyrics_logo.png">
+    </div>
+</header>
+<main>
+    <section class="song">
+        <div class="cover-song">
+            <div class="circular">
+                <div class="inner" style="--img: {{ song.cover_link }};"></div>
+                <div class="circle">
+                    <div class="bar left" style="--value1:{{ time1 }}; --value2:{{ time2 }};">
+                        <div class="progress"></div>
+                    </div>
+                    <div class="bar right" style="--value1:{{ time1 }}; --value2:{{ time2 }};">
+                        <div class=" progress"></div>
+                    </div>
+                </div>
+            </div>
+            {{ dump(song) }}
+            <img src="{{ song.cover_link }}" alt="cover of the song">
+        </div>
+        <div>
+            <h1>{{ song.title }}</h1>
+            <h2>{{ song.artist }}</h2>
+        </div>
+    </section>
+    <section class="lyrics">
+        <div class="text">
+            <h2>{{ song.lyrics_display }}</h2>
+            <h2>
+                {% for i in range(0, numberOfWords) %}
+                ___&nbsp;&nbsp;
+                {% endfor %}
+            </h2>
+        </div>
+    </section>
+    <section class="answer">
+        <form method="post" action="/">
+            <input type="text" name="user_answer" placeholder="Guess the lyrics...">
+            <input type="submit" value="&#10003;">
+        </form>
+    </section>
+</main>
 <div class="people_background">
 </div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+    const axios = require('axios')
+</script>
 
 {% endblock %}

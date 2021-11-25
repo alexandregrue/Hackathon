@@ -18,19 +18,6 @@ class SongManager extends AbstractManager
                 "WHERE lyrics.id NOT IN (" . $askedLyricsList . ") " .
                 "ORDER BY rand() LIMIT 1");
         }
-        return $this->pdo->query($query)->fetchAll();
+        return $this->pdo->query($query)->fetch();
     }
-
-
-
-
-
-
-
-
-
-
-
 }
-
-

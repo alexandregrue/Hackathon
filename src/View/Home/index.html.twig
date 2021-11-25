@@ -5,28 +5,43 @@
 {% endblock %}
 
 {% block content %}
-<div class="logo_lyrics">
-
-</div>
-<section class="homepage">
-    <h1 class="slogan">
-        Have a break,<br>
-        Have a lyrics break!
-    </h1>
-
-    <div class="start_game">
-        <a href="/game">Start the game</a><br>
+    <div class="logo_lyrics">
     </div>
+    <section class="homepage">
+        <h1 class="slogan">
+            Have a break,<br>
+            Have a lyrics break!
+        </h1>
 
-    <div class="rules">
-        <a href="/rules">How to play</a>
+        <a href="/game" class="start_game pulse"><span>Start the game</span></a>
+        
+        <!-- Button trigger modal -->
+        <button type="button" class="btn-rules btn-index" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            How to play
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title" id="exampleModalLabel">Instructions</h3>    
+                    </div>
+                    <div class="modal-body">
+                        <ul class="instructions">
+                            <li>Click on "start the game".</li>
+                            <li>Listen to the short extract of the music.</li>
+                            <li>Type the words that are missing on the lyrics.</li>
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn-rules" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="people_background">
     </div>
-</section>
-<div class="people_background">
-    {#         <img src="/assets/images/people_background.png" alt="">#}
-</div>
-
-
-
 
 {% endblock %}

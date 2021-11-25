@@ -1,0 +1,174 @@
+/* VARIABLES */
+
+:root {
+    --main-color: #32154B;
+    --secondary-color: #1D3E60;
+    --title-font: 'Magra', sans-serif;
+    --text-font: 'Raleway', sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+body{
+    background: linear-gradient(180deg, #6624A4 0%, rgba(115, 36, 137, 0.791667) 38.54%, rgba(228, 66, 66, 0.81) 65.62%, #DB4848 100%) no-repeat center center fixed;
+}
+
+.logo_lyrics{
+    background-image: url(../images/lyrics_logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 10.375rem; 
+    width: 16.2rem;
+    margin-top: 4rem;
+}
+
+.people_background{
+    z-index: -1;
+    background-image: url(../images/people_background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 35%;
+    position: fixed;
+    bottom: 0;
+}
+
+header {
+    height: 10vh;
+    width: 100%;
+    background: #350A5F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-header img {
+    height: 15vmin;
+    width: auto;
+}
+
+.song {
+    height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 2px solid black;
+}
+
+.song img {
+    height: 30vmin;
+    width: 30vmin;
+    border: 1px solid black;
+}
+
+.lyrics {
+    height: 50vh;
+    border: 2px solid black;
+    background-image: url(../images/lyrics_logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+}
+
+.answer {
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form input[type=text] {
+    width: 80vw;
+    height: 12vmin;
+}
+
+form input[type=submit] {
+    width: 15vw;
+    height: 12vmin;
+    background: #7CF05F;
+}
+
+.circular{
+    height:100px;
+    width: 100px;
+    position: relative;  
+}
+
+.circular .inner{
+    position: absolute;
+    z-index: 6;
+    top: 50%;
+    left: 50%;
+    height: 80px;
+    width: 80px;
+    margin: -40px 0 0 -40px;
+    background-image: url('../../var(--img)');
+    background-position: center;
+    background-size: cover;
+}
+
+.circular .bar {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #fff;
+    -webkit-border-radius: 100%;
+    clip: rect(0px, 100px, 100px, 50px);
+}
+
+.circle .left {
+    left: -.5%;
+    width: 100px;
+    height: 100px;
+}
+
+.circle .right {
+    width: 100px;
+    height: 100px;
+}
+
+.circle .bar .progress{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    -webkit-border-radius: 100%;
+    clip: rect(0px, 50px, 100px, 0px);
+    background: #4158d0;
+}
+
+.circle .left .progress {
+    z-index:1;
+    animation: left var(--value1) linear both;
+}
+@keyframes left{
+    100%{
+        transform: rotate(180deg);
+    }
+}
+
+.circle .right {
+    transform: rotate(180deg);
+    z-index:3;
+}
+
+.circle .right .progress {
+    animation: right var(--value2) linear both;
+    animation-delay: var(--value1);
+}
+
+@keyframes right{
+    100%{
+        transform: rotate(180deg);
+    }
+}
