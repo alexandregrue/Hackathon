@@ -1,54 +1,28 @@
 {% extends 'layout.html.twig' %}
 
-{% block stylesheet %}
-<link rel="stylesheet" href="/assets/css/style.css">
-{% endblock %}
-
 {% block content %}
-<div class="logo_lyrics">
-</div>
-<section class="homepage">
+    <div class="logo_lyrics">
+
+    </div>
+    <section class="homepage">
     <h1 class="slogan">
         Have a break,<br>
         Have a lyrics break!
     </h1>
 
-    <a href="/game" class="start_game pulse"><span>Start the game</span></a>
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn-rules btn-index up" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        How to play
-    </button>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title" id="exampleModalLabel">Instructions</h3>
-                </div>
-                <div class="modal-body">
-                    <ul class="instructions">
-                        <li>=> Listen to the short extract of music. Then, guess the <strong>missing lyrics</strong>.</li>
-                        <li>=> You can listen to it <strong>only</strong> once more.</li>
-                        <li>=> Type the words following the number of blank.</li>
-                        <li>=> Afer answering, click on the blue button at the bottom to restart the game</li>
-                        <h3>Difficulties</h3>
-                        <div class="difficulties">
-                            <li><img src="/assets/images/vinyle_easy.png"><span class="easy">EASY</span></li>
-                            <li><img src="/assets/images/vinyle_medium.png" ><span class="medium">MEDIUM</span></li>
-                            <li><img src="/assets/images/vinyle_hard.png" ><span class="hard">HARD</span></li>
-                        </div>
-                    </ul>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn-rules up" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
+    <div class="start_game">
+    <a href="/game">Start the game</a><br>
     </div>
-</section>
-<div class="people_background">
-</div>
+
+    <div class="rules">
+    <a href="/rules">How to play</a>
+    </div>
+    </section>
+    <div class="people_background">
+{#         <img src="/assets/images/people_background.png" alt="">
+ #}    </div>
+
+
+
 
 {% endblock %}

@@ -9,11 +9,13 @@ class SongManager extends AbstractManager
     public function selectRandomSong(string $askedLyricsList = null): array
     {
         if (!isset($askedLyricsList) || $askedLyricsList == null) {
-            $query = ("SELECT * FROM " . static::TABLE . " " .
+            $query = (
+                "SELECT * FROM " . static::TABLE . " " .
                 "INNER JOIN lyrics ON song.id = lyrics.id_song " .
                 "ORDER BY rand() LIMIT 1");
         } else {
-            $query = ("SELECT * FROM " . static::TABLE . " " .
+            $query = (
+                "SELECT * FROM " . static::TABLE . " " .
                 "INNER JOIN lyrics ON song.id = lyrics.id_song " .
                 "WHERE lyrics.id NOT IN (" . $askedLyricsList . ") " .
                 "ORDER BY rand() LIMIT 1");
