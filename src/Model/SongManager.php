@@ -20,4 +20,10 @@ class SongManager extends AbstractManager
         }
         return $this->pdo->query($query)->fetch();
     }
+
+    public function countAllSongs(): array
+    {
+        $query = ("SELECT COUNT(*) AS total FROM " . static::TABLE);
+        return $this->pdo->query($query)->fetch();
+    }
 }

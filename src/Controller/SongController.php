@@ -10,6 +10,8 @@ class SongController extends AbstractController
     {
         // Copyright Morgane
         $songManager = new SongManager();
+        $count = $songManager->countAllSongs();
+        $countTotal = intval($count['total']);
 
         if (!isset($_SESSION["lyricsWellAnswered"])) {
             $_SESSION["lyricsWellAnswered"] = [];
@@ -18,10 +20,16 @@ class SongController extends AbstractController
         if (empty($_SESSION["lyricsWellAnswered"])) {
             //if it's the beginning of the session, we select a random question
             $song = $songManager->selectRandomSong();
-        } else {
+        } elseif (
+            (!empty($_SESSION["lyricsWellAnswered"]) && (count($_SESSION["lyricsWellAnswered"]) < $countTotal))
+        ) {
             // Transform the array into a string to send it as a parameter for the SQL request
             $askedLyricsList = implode(",", $_SESSION["lyricsWellAnswered"]);
             $song = $songManager->selectRandomSong($askedLyricsList);
+        } elseif (
+            !empty($_SESSION["lyricsWellAnswered"]) && (count($_SESSION["lyricsWellAnswered"]) == $countTotal)
+        ) {
+            header("Location:/success");
         }
 
         if (isset($song["id"])) {
@@ -42,7 +50,7 @@ class SongController extends AbstractController
         // if the answer is correct, and then an array in the json format. Otherwise it returns an error.
         // (For now only that the answer doesn't have the correct amount of words.)
         if (isset($_SESSION["song"]) && isset($_GET["answer"])) {
-            $arraySongAnswer = explode(" ", $_SESSION["song"]["lyrics_to_guess"]);
+            $arraySongAnswer = explode(" ", trim($_SESSION["song"]["lyrics_to_guess"]));
             $arrayUserAnswer = explode(" ", $_GET["answer"]);
             $arrayCorrection = []; // This will return a keyed array [string "word" and bool "is correct"]
             $answerisCorrect = true;
@@ -52,7 +60,7 @@ class SongController extends AbstractController
             }
 
             foreach ($arrayUserAnswer as $index => $word) {
-                if ($word === $arraySongAnswer[$index]) {
+                if (strtolower($word) === strtolower($arraySongAnswer[$index])) {
                     $arrayCorrection[] = [$word, true];
                 } else {
                     // We check this to send if the page has to show the right lyrics below the answer.
@@ -61,8 +69,9 @@ class SongController extends AbstractController
                 }
             }
 
-            if ($answerisCorrect) {
+            if ($answerisCorrect && isset($_SESSION["lyricsWellAnswered"]) && isset($_SESSION['song']['id'])) {
                 // Todo: put the lyrics id in $_SESSION["lyricsWellAnswered"]
+                $_SESSION["lyricsWellAnswered"][] = $_SESSION['song']['id'];
             }
             return json_encode([$arrayCorrection, $answerisCorrect, $_SESSION["song"]["lyrics_to_guess"]]);
         } else {
