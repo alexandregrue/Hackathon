@@ -5,6 +5,7 @@
     --secondary-color: #1D3E60;
     --title-font: 'Magra', sans-serif;
     --text-font: 'Raleway', sans-serif;
+    --lyrics-font: 'Gochi Hand', sans-serif;
 }
 
 *{
@@ -73,6 +74,7 @@ header {
 }
 
 .lyrics {
+    font-family: var(--lyrics-font);
     background-image: url(../images/paper.png);
     background-repeat: no-repeat;
     background-size: cover;
