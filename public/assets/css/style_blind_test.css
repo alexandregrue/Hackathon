@@ -73,6 +73,34 @@ header {
     text-align: center;
 }
 
+.score {
+    font-family: var(--text-font);
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    border-radius: 9px;
+    padding: 0.5rem;
+    text-align: center;
+    position: absolute;
+    right: 5%;
+}
+
+.score .score-title {
+    display: none;
+}
+
+.star {
+    background-image: url(../images/star.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+}
+
 .answer {
     position: fixed;
     bottom: 0; 
@@ -84,14 +112,13 @@ header {
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
+    flex-direction: column;
 }
 
 form div {
     display: flex;
-    width: 80%;
-    margin-left: 20%;
+    width: 20rem;
     margin: 0 auto;
-    margin-left: 13%;
 }
 
 form input[type=text] {
@@ -308,8 +335,17 @@ form input[type=submit]:hover {
     }
 
     form div {
-        width: 51%;
-        margin-left: 35%
+        margin: 0 auto;
+    }
+
+    .score {
+        height: 4rem;
+        width: 10rem;
+        background-color: rgba(255, 255, 255, 0.322);
+    }
+
+    .score .score-title {
+        display: block;
     }
 }
 
@@ -395,7 +431,7 @@ form input[type=submit]:hover {
     .circular .inner img {
         height: 14rem;
         width: 14rem;
-        margin: -7em 0 0 -7.2em;
+        margin: -7.1em 0 0 -7.1em;
     }
 
     .circular .bar {
