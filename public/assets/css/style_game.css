@@ -144,7 +144,7 @@ form input[type=submit] {
     margin-left: 1rem;
 }
 
-form input[type=submit]:hover, form input[type=submit]:focus {
+#form-submit:hover, #form-submit:focus {
     -webkit-animation: pulse 1s;
     animation: pulse 1s;
     box-shadow: 0 0 0 .8em rgba(255, 255, 255, 0);
@@ -162,12 +162,12 @@ form input[type=submit]:hover, form input[type=submit]:focus {
     }
 }
 
-form input[type=submit]:hover {
+#form-submit:hover {
     background-color: #57da37;
     transition: 0.2s;
 }
 
-#form-reload{
+#form-reload {
     background-color: royalblue;
     background-image: url(../images/reload.png);
 }
@@ -178,18 +178,18 @@ form input[type=submit]:hover {
 }
 
 #form-reload:hover, #form-reload:focus {
-    -webkit-animation: pulse 1s;
-    animation: pulse 1s;
+    -webkit-animation: pulse2 1s;
+    animation: pulse2 1s;
     box-shadow: 0 0 0 .8em rgba(255, 255, 255, 0);
 }
 
-@-webkit-keyframes pulse {
+@-webkit-keyframes pulse2 {
     0% {
         box-shadow: 0 0 0 0 dodgerblue;
     }
 }
 
-@keyframes pulse {
+@keyframes pulse2 {
     0% {
         box-shadow: 0 0 0 0 dodgerblue;
     }
