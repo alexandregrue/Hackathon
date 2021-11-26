@@ -1,13 +1,3 @@
-/* VARIABLES */
-
-:root {
-    --main-color: #32154B;
-    --secondary-color: #285D95;
-    --title-font: 'Magra', sans-serif;
-    --text-font: 'Raleway', sans-serif;
-    --lyrics-font: 'Gochi Hand', sans-serif;
-}
-
 *{
     box-sizing: border-box;
     margin: 0 auto;
@@ -27,7 +17,7 @@ body{
 }
 
 .slogan {
-    font-family: var(--title-font);
+    font-family: 'Magra', sans-serif;
     color: #FFFFFF;
     font-weight: 600;
     font-size: 33px;
@@ -35,88 +25,46 @@ body{
     margin-top: 4.5rem;
 }
 
-.homepage {
+.start_game {
     display: flex;
-    flex-direction: column;
     align-items: center;
-}
-
-/* BUTTONS */
-
-.btn-rules {
-    font-family: var(--title-font);
-    color: white;
-    background-color: #440463;
-    padding: 0.5em 2em;
-    border: none;
-    border-radius: 9px;;
-}
-
-.btn-index {
-    margin-top: 50px;
-}
-
-/* MODAL BOX */
-
-.modal-content {
-    margin-top: 50%;
-    font-family: var(--text-font);
-    background-color: var(--main-color)!important;
-}
-
-.modal-header h3 {
-    font-family: var(--title-font);
-    font-weight: bold;
-    color: #fff;
-}
-
-.modal-header {
-    margin-bottom: 1em;
-}
-
-.modal-body {
-    overflow-y: scroll;
-    height: 300px;
-    padding: 0!important;
-}
-
-.modal-footer {
-    margin-top: 1em;
-}
-
-.instructions {
-    list-style: none;
-    color: #fff;
-    padding: 1em;
-}
-
-.instructions h3 {
     text-align: center;
-    padding: 1em 0 0.5em 0;
+    background: #1D3E60;
+    width: 12.75rem;
+    height: 4rem;
+    border-radius: 9px;
+    margin-top: 2.8rem;
+}
+.start_game a{
+    font-family: Magra;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 21px;
+    text-decoration: none;
+    color: #FFFFFF;
 }
 
-.instructions .difficulties {
+.rules {
     display: flex;
-    justify-content: space-evenly;
-}
-
-.difficulties li {
+    align-items: center;
     text-align: center;
+    width: 9.625rem;
+    height: 2.25rem;
+    margin-top: 1.25rem;
+    background: #32154B;
+    border-radius: 9px;
 }
 
-.difficulties li span {
-    display: block;
-    margin-top: .4em;
-    font-weight: 900;
-}
-
-.difficulties img {
-    width: 75px;
-    height: 75px;
+.rules a{
+    font-family: Magra;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    color: #FFFFFF;
 }
 
 .people_background{
-    z-index: -1;
     background-image: url(../images/people_background.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -124,69 +72,4 @@ body{
     height: 35%;
     position: fixed;
     bottom: 0;
-}
-
-.easy {
-    color: #96E400;
-}
-
-.medium {
-    color: #E48B00;
-}
-
-.hard {
-    color: #E40200;
-}
-
-
-/* BUTTON START GAME */
-
-.start_game {
-    display: flex;
-    align-items: center;
-    text-align: center;
-    border: .2em solid var(--main-color);
-    background-color: var(--main-color);
-    width: 12.75rem;
-    height: 4rem;
-    border-radius: 9px;
-    margin-top: 2.8rem;
-    text-decoration: none;
-    color: white;
-    font-family: var(--title-font);
-    font-weight: 600;
-    font-size: 21px;
-    transition: 0.25s;
-}
-
-.start_game:hover, .start_game:focus {
-    color: white;
-    cursor: pointer;
-    border: .2em solid var(--secondary-color);
-    background-color: var(--secondary-color);
-    -webkit-animation: pulse 1s;
-    animation: pulse 1s;
-    box-shadow: 0 0 0 1em rgba(255, 255, 255, 0);
-}
-
-@-webkit-keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 var(--secondary-color);
-    }
-}
-
-@keyframes pulse {
-    0% {
-        box-shadow: 0 0 0 0 var(--main-color);
-    }
-}
-
-/* OTHER BUTTON ANIMATION */ 
-
-.up {
-    transition: .5s;
-}
-
-.up:hover, .up:focus {
-    box-shadow: inset 0 -3.25em 0 0 var(--secondary-color);
 }
