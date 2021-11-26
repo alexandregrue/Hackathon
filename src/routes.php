@@ -10,4 +10,6 @@ return [
     '' => ['HomeController', 'index',],
     'game' => ['SongController', 'getSong'],
     'verify' => ['SongController', 'verifyAnswer', ['answer']],
+    'blindtest' => ['BlindTestController', 'getSong'],
+    'verifyblind' => ['BlindTestController', 'verifyAnswerBlind', ['title'], ['artist']],
 ];
