@@ -10,4 +10,5 @@ return [
     '' => ['HomeController', 'index',],
     'game' => ['SongController', 'getSong'],
     'verify' => ['SongController', 'verifyAnswer', ['answer']],
+    'success' => ['SuccessController', 'success'],
 ];
