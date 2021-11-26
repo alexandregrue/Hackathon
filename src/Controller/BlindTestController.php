@@ -8,7 +8,6 @@ class BlindTestController extends AbstractController
 {
     public function getSong()
     {
-        // Copyright Morgane
         $songManager = new BlindTestManager();
 
         if (!isset($_SESSION["MusicWellAnswered"])) {
@@ -53,6 +52,8 @@ class BlindTestController extends AbstractController
             } elseif ($artistinDB == $artist) {
                 $_SESSION['score'] += 1;
                 $response = "Just the artist is correct";
+            } else {
+                $response = "Sorry both of your answers are wrong";
             }
 
 

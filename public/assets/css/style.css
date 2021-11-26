@@ -43,6 +43,12 @@ body{
 
 /* BUTTONS */
 
+.gamesButton {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
 .btn-rules {
     font-family: var(--title-font);
     color: white;
@@ -87,7 +93,7 @@ body{
 .instructions {
     list-style: none;
     color: #fff;
-    padding: 1em;
+    padding: .5em 2em;
 }
 
 .instructions h3 {
@@ -166,7 +172,7 @@ body{
     background-color: var(--secondary-color);
     -webkit-animation: pulse 1s;
     animation: pulse 1s;
-    box-shadow: 0 0 0 1em rgba(255, 255, 255, 0);
+    box-shadow: 0 0 0 .7em rgba(255, 255, 255, 0);
 }
 
 @-webkit-keyframes pulse {
@@ -177,7 +183,7 @@ body{
 
 @keyframes pulse {
     0% {
-        box-shadow: 0 0 0 0 var(--main-color);
+        box-shadow: 0 0 0 0 var(--secondary-color);
     }
 }
 
@@ -189,4 +195,12 @@ body{
 
 .up:hover, .up:focus {
     box-shadow: inset 0 -3.25em 0 0 var(--secondary-color);
+}
+/* Media Queries screen > 1024 */
+
+@media screen and (min-width: 1024px) {
+    .gamesButton {
+        flex-direction: row;
+        gap: 5rem;
+    }
 }

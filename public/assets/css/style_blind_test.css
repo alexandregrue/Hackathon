@@ -75,23 +75,23 @@ header {
 
 .answer {
     position: fixed;
-    bottom: 0;    
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-}
-
-form{
-    margin: 0 auto;
+    bottom: 0; 
+    width: 100%;   
 }
 
 .answer form {
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 form div {
     display: flex;
+    width: 80%;
+    margin-left: 20%;
+    margin: 0 auto;
+    margin-left: 13%;
 }
 
 form input[type=text] {
@@ -292,6 +292,10 @@ form input[type=submit]:hover {
     text-decoration: line-through;
 }
 
+@media screen  {
+    
+}
+
 /* Media Queries screen > 600 */
 
 @media screen and (min-width: 600px) {
@@ -302,12 +306,21 @@ form input[type=submit]:hover {
     .song {
         margin: 10% auto;
     }
-}
 
+    form div {
+        width: 51%;
+        margin-left: 35%
+    }
+}
 
 /* Media Queries screen > 1024 */
 
 @media screen and (min-width: 1024px) {
+    form div {
+        width: 51%;
+        margin: 0 auto;
+    }
+
     .text h2 {
         font-size: 1.5em;
     }
@@ -319,8 +332,6 @@ form input[type=submit]:hover {
     .song {
         gap: 20px;
     }
-
-    
 
     .infos {
         background-color: rgba(22, 6, 37, .3);
@@ -371,8 +382,6 @@ form input[type=submit]:hover {
         width: 4rem;
         height: 4rem;
     }
-
-   
 
     .circular, .circle .left, .circle .right {
         width: 16.02rem;

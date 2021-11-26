@@ -15,13 +15,13 @@
         <div class="cover-song">
             <div class="circular">
                 <div class="inner" style="--totaltime: 15s;">
-                    <input id="totaltime" type="hidden" value="15s">
+                    <input id="totaltime" type="hidden" value="15">
                     <img class="img-cover" src="/assets/images/vinyle_white.png" alt="album cover">
                     <audio src=""></audio>
                     <a onload="play()" onclick="play()" class="audio">
                         <audio id="audio">
                     </a>
-                    
+
                 </div>
                 <div class="circle">
                     <div class="bar left" style="--value1: 7.5s; --value2: 7.5s;">
@@ -35,12 +35,14 @@
         </div>
 
     </section>
-    
+
     <section class="answer">
         <form method="post" id="form">
-            <input type="text" id="form-answer-title" name="user_answer_title" placeholder="Guess the title ...">
             <div>
-                <input type="text" id="form-answer-answer" name="user_answer_artist" placeholder="Guess the artist ...">
+                <input type="text" id="form-answer-title" name="user_answer_title" placeholder="Guess the title ...">
+            </div>
+            <div class ="quick-div-for-reload">
+                <input type="text" id="form-answer-artist" name="user_answer_artist" placeholder="Guess the artist ...">
                 <input type="submit" id="form-submit" value="">
             </div>
         </form>
@@ -101,7 +103,7 @@
 
     formSubmit.addEventListener('click', (event) => {
         event.preventDefault();
-
+                
         let answerTitle = document.getElementById("form-answer-title").value;
         let answerArtist = document.getElementById("form-answer-artist").value;
         let quoteHtml = ""
@@ -109,15 +111,10 @@
         const url = `/verifyblind?title=${answerTitle}&artist=${answerArtist}`;
         axios.get(url)
             .then(function (response) {
-                if (response.data[0] == false) { // If the form verificator returned an error we show it with an alert.
-                    alert("You didn't send the correct amount of words.");
-                    return;
+                if (response.data[0] !=
+                    false) { // If the form verificator returned an error we show it with an alert.
+                    alert(`${response.data[0]}`);
                 }
-                response.data[0].forEach(word => {
-                    isCorrect = word[1] ? 'word-correct' : 'word-false'; // This sets up a color whether the word is correct or not.
-                    quoteHtml += `<span class="${isCorrect}">${word[0]} </span>`;
-                });
-                divAnswer.innerHTML = quoteHtml;
 
                 // Remove the validate answer input and change it to a reload page
                 var elem = document.getElementById("form-submit");
@@ -128,7 +125,13 @@
                 node.setAttribute("id", "form-reload");
                 node.setAttribute("type", "submit");
                 node.setAttribute("value", "");
-                document.querySelector("#form").appendChild(node);
+                document.querySelector(".quick-div-for-reload").appendChild(node);
+
+                /*response.data[0].forEach(word => {
+                    isCorrect = word[1] ? 'word-correct' : 'word-false'; // This sets up a color whether the word is correct or not.
+                    quoteHtml += `<span class="${isCorrect}">${word[0]} </span>`;
+                });
+                divAnswer.innerHTML = quoteHtml;
 
                 if (response.data[1] == false) {
                     setTimeout(() => {
@@ -142,6 +145,7 @@
                         document.querySelector(".text").appendChild(node);
                     }, 4000);
                 }
+                */
             })
     });
 </script>
