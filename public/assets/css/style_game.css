@@ -237,7 +237,7 @@ form input[type=submit]:hover {
     background: #E45A5A;
 }
 
-.circle .left .progress {
+.circle .left .progress-left {
     z-index:1;
     animation: left var(--value1) linear both;
 }
@@ -253,7 +253,7 @@ form input[type=submit]:hover {
     z-index:3;
 }
 
-.circle .right .progress {
+.circle .right .progress-right {
     animation: right var(--value2) linear both;
     animation-delay: var(--value1);
 }

@@ -25,10 +25,10 @@
                 <div class="circle">
                     <div class="bar left" style="--value1:{{ song.time/2 }}s; --value2:{{ song.time/2 }}s;">
 
-                        <div class="div-progress progress"></div>
+                        <div class="div-progress progress progress-left"></div>
                     </div>
                     <div class="bar right" style="--value1:{{ song.time/2 }}s; --value2:{{ song.time/2 }}s;">
-                        <div class="div-progress progress"></div>
+                        <div class="div-progress progress progress-right"></div>
                     </div>
                 </div>
             </div>
@@ -74,17 +74,19 @@
 
     let toggle = document.querySelector('.audio');
     let resetAnimationImg = document.querySelector('.img-cover');
-    let progress = document.querySelector('.progress');
+    let progressRight = document.querySelector('.progress-right');
+    let progressLeft = document.querySelector('.progress-left');
 
     toggle.addEventListener('click', function () {
         toggle.classList.add("stop");
-        progress.style.animation = 'none';
-        progress.style.animationDelay = 'none';
+        progressRight.style.animation = 'none';
+        progressLeft.style.animation = 'none';
+        progressRight.style.animationDelay = 'none';
         resetAnimationImg.style.animationName = 'none';
         setTimeout(function () {
-            progress.style.animation = '';
-            progress.style.animation = '';
-            progress.style.animationDelay = '';
+            progressRight.style.animation = '';
+            progressLeft.style.animation = '';
+            progressRight.style.animationDelay = '';
             resetAnimationImg.style.animationName = '';
         }, 100);
     })
