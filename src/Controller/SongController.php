@@ -13,6 +13,10 @@ class SongController extends AbstractController
         $count = $songManager->countAllSongs();
         $countTotal = intval($count['total']);
 
+        //initialize SESSION score et lyricsWellAnswered if not setted
+        if (!isset($_SESSION['score'])) {
+            $_SESSION['score'] = 0;
+        }
         if (!isset($_SESSION["lyricsWellAnswered"])) {
             $_SESSION["lyricsWellAnswered"] = [];
         }
@@ -72,6 +76,7 @@ class SongController extends AbstractController
             if ($answerisCorrect && isset($_SESSION["lyricsWellAnswered"]) && isset($_SESSION['song']['id'])) {
                 // Todo: put the lyrics id in $_SESSION["lyricsWellAnswered"]
                 $_SESSION["lyricsWellAnswered"][] = $_SESSION['song']['id'];
+                $_SESSION['score'] ++;
             }
             return json_encode([$arrayCorrection, $answerisCorrect, $_SESSION["song"]["lyrics_to_guess"]]);
         } else {
