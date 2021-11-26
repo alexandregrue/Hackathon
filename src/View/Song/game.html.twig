@@ -105,6 +105,8 @@
     }, totaltime);
 </script>
 <script>
+    // This script changes the lyrics div by showing back the user his answer and tell if they were right.
+    // We use ajax to get the result from our database.
     let formSubmit = document.getElementById("form-submit");
     let divAnswer = document.querySelector('.wordsToFind');
 
@@ -117,21 +119,21 @@
         const url = `/verify?answer=${answer}`;
         axios.get(url)
             .then(function (response) {
-                if (response.data[0] == false) {
+                if (response.data[0] == false) { // If the form verificator returned an error we show it with an alert.
                     alert("You didn't send the correct amount of words.");
                     return;
                 }
                 response.data[0].forEach(word => {
-                    isCorrect = word[1] ? 'word-correct' : 'word-false';
+                    isCorrect = word[1] ? 'word-correct' : 'word-false'; // This sets up a color whether the word is correct or not.
                     quoteHtml += `<span class="${isCorrect}">${word[0]} </span>`;
                 });
                 divAnswer.innerHTML = quoteHtml;
 
                 // Remove the validate answer input and change it to a reload page
-                // <input type="submit" id="form-submit" value="">
                 var elem = document.getElementById("form-submit");
                 elem.parentNode.removeChild(elem);
 
+                // When the answer is submitted, we change the submit button to a reload one.
                 let node = document.createElement("input");
                 node.setAttribute("id", "form-reload");
                 node.setAttribute("type", "submit");
@@ -140,15 +142,14 @@
 
                 if (response.data[1] == false) {
                     setTimeout(() => {
+                        // If the answer isn't correct, after 4 seconds we show the right answer.
                         divAnswer.classList.add("wrong-answer");
 
-                        let node = document.createElement("h2"); // Create a <li> node
+                        let node = document.createElement("h2"); 
                         node.classList.add("word-correct");
-                        let textnode = document.createTextNode(response.data[
-                            2]); // Create a text node
-                        node.appendChild(textnode); // Append the text to <li>
-                        document.querySelector(".text").appendChild(
-                            node); // Append <li> to <ul> with id="myList" 
+                        let textnode = document.createTextNode(response.data[2]);
+                        node.appendChild(textnode); 
+                        document.querySelector(".text").appendChild(node);
                     }, 4000);
                 }
             })
