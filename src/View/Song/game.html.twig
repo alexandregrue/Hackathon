@@ -9,6 +9,10 @@
     <div class="img-header">
         <a href="/"><img src="/assets/images/lyrics_logo.png" alt="logo Lyrics Break"></a>
     </div>
+    <div class="score">
+        <span class="score-title">Your score :</span>
+        <div class="star"><span class="scoreStar">{{ session.score }}</span></div>
+    </div>
 </header>
 <main>
     <section class="song">
@@ -55,6 +59,7 @@
             <input type="text" id="form-answer" name="user_answer" placeholder="Guess the lyrics...">
             <input type="submit" id="form-submit" value="">
         </form>
+        
     </section>
    
 </main>
