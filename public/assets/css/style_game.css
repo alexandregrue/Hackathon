@@ -418,8 +418,8 @@ form input[type=submit]:hover {
     }
 
     .circular, .circle .left, .circle .right {
-        width: 16.03rem;
-        height: 16.03rem;
+        width: 16.02rem;
+        height: 16rem;
     }
 
     .circle .left {
@@ -429,7 +429,7 @@ form input[type=submit]:hover {
     .circular .inner img {
         height: 14rem;
         width: 14rem;
-        margin: -7em 0 0 -7em;
+        margin: -7em 0 0 -7.2em;
     }
 
     .circular .bar {
