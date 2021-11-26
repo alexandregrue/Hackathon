@@ -130,10 +130,42 @@
                     return;
                 }
                 response.data[0].forEach(word => {
-                    isCorrect = word[1] ? 'word-correct' : 'word-false'; // This sets up a color whether the word is correct or not.
+                    isCorrect = word[1] ? 'word-correct-delayed' : 'word-false-delayed'; // This sets up a color whether the word is correct or not.
                     quoteHtml += `<span class="${isCorrect}">${word[0]} </span>`;
                 });
                 divAnswer.innerHTML = quoteHtml;
+
+                let goodAnswerArray = Array.from(document.querySelectorAll('.word-correct-delayed'));
+                let goodAnswerArrayLength = goodAnswerArray.length;
+                let goodAnswerArrayRemainingLength = goodAnswerArrayLength;
+                goodAnswerArray  = goodAnswerArray.sort((a, b) => 0.5 - Math.random());
+                let delay = 0;
+                let numberofLoop = 0;
+
+                
+                //
+                while (goodAnswerArrayRemainingLength > 0) {
+                    delay += 1500 + numberofLoop * 250;
+                    let numberOfWordsToShow = Math.floor(Math.random() * goodAnswerArrayRemainingLength) + 1;
+                    numberOfWordsToShow = numberOfWordsToShow > 3 ? 3 : numberOfWordsToShow;
+                    goodAnswerArrayRemainingLength -= numberOfWordsToShow;
+                    setTimeout(() => {
+                        for (let j = 0 ; j < numberOfWordsToShow ; j++){
+                            goodAnswerArray[0].classList.replace("word-correct-delayed", "word-correct");
+                            goodAnswerArray.shift();
+                        }
+                    }, delay);
+                    numberofLoop += 1;
+                }
+
+                delay += 3000;
+                let badAnswerArray = Array.from(document.querySelectorAll('.word-false-delayed'));
+                setTimeout(() => {
+                    badAnswerArray.forEach(badAnswer => {
+                    badAnswer.classList.replace("word-false-delayed", "word-false");
+                    })
+
+                }, delay);
 
                 // Remove the validate answer input and change it to a reload page
                 var elem = document.getElementById("form-submit");
@@ -146,6 +178,8 @@
                 node.setAttribute("value", "");
                 document.querySelector("#form").appendChild(node);
 
+                delay += 2500;
+
                 if (response.data[1] == false) {
                     setTimeout(() => {
                         // If the answer isn't correct, after 4 seconds we show the right answer.
@@ -156,7 +190,7 @@
                         let textnode = document.createTextNode(response.data[2]);
                         node.appendChild(textnode); 
                         document.querySelector(".text").appendChild(node);
-                    }, 4000);
+                    }, delay);
                 }
             })
     });
