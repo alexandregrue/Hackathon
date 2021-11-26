@@ -1,0 +1,156 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="/assets/css/style_game.css">
+{% endblock %}
+
+{% block content %}
+<header>
+    <div class="img-header">
+        <a href="/"><img src="/assets/images/lyrics_logo.png" alt="logo Lyrics Break"></a>
+    </div>
+</header>
+<main>
+    <section class="song">
+        <div class="cover-song">
+            <div class="circular">
+                <div class="inner" style="--totaltime:{{ song.time }}s;">
+                    <input id="totaltime" type="hidden" value="{{ song.time }}">
+                    <img class="img-cover" src="{{ song.cover_link }}" alt="album cover">
+                    <a onload="play()" onclick="play()" class="audio">
+                        <audio id="audio">
+                        </audio>
+                    </a>
+                </div>
+                <div class="circle">
+                    <div class="bar left" style="--value1:{{ song.time/2 }}s; --value2:{{ song.time/2 }}s;">
+
+                        <div class="div-progress progress"></div>
+                    </div>
+                    <div class="bar right" style="--value1:{{ song.time/2 }}s; --value2:{{ song.time/2 }}s;">
+                        <div class="div-progress progress"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="infos">
+            <h1>{{ song.title }}</h1>
+            <h2>{{ song.artist }}</h2>
+        </div>
+    </section>
+    <section class="lyrics">
+        <div class="text">
+            <h2>{{ song.lyrics_display }}</h2><br>
+            <h2 class="wordsToFind">
+                {% for i in range(0, numberOfWords) %}
+                ___&nbsp;&nbsp;
+                {% endfor %}
+            </h2>
+        </div>
+    </section>
+    <section class="answer">
+        <form method="post" id="form">
+            <input type="text" id="form-answer" name="user_answer" placeholder="Guess the lyrics...">
+            <input type="submit" id="form-submit" value="">
+        </form>
+    </section>
+</main>
+<div class="people_background">
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"
+    integrity="sha256-S1J4GVHHDMiirir9qsXWc8ZWw74PHHafpsHp5PXtjTs=" crossorigin="anonymous"></script>
+<script>
+    function play() {
+        var audio = new Audio('{{ song.mp3_link }}');
+        audio.volume = 0.07;
+        console.log(audio);
+        audio.play();
+    }
+
+    let toggle = document.querySelector('.audio');
+    let resetAnimationImg = document.querySelector('.img-cover');
+    let progress = document.querySelector('.progress');
+
+    toggle.addEventListener('click', function () {
+        toggle.classList.add("stop");
+        progress.style.animation = 'none';
+        progress.style.animationDelay = 'none';
+        resetAnimationImg.style.animationName = 'none';
+        setTimeout(function () {
+            progress.style.animation = '';
+            progress.style.animation = '';
+            progress.style.animationDelay = '';
+            resetAnimationImg.style.animationName = '';
+        }, 100);
+    })
+
+    window.onload = play();
+
+    function addPlayButton() {
+        toggle.classList.add("play");
+    }
+
+    let totaltime = document.getElementById("totaltime");
+    totaltime = totaltime.value * 1000;
+
+    var timeout = setTimeout(function () {
+        addPlayButton();
+    }, totaltime);
+</script>
+<script>
+    let formSubmit = document.getElementById("form-submit");
+    let divAnswer = document.querySelector('.wordsToFind');
+
+    formSubmit.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        let answer = document.getElementById("form-answer").value;
+        let quoteHtml = ""
+
+        const url = `/verify?answer=${answer}`;
+        axios.get(url)
+            .then(function (response) {
+                if (response.data[0] == false) {
+                    alert("You didn't send the correct amount of words.");
+                    return;
+                }
+                response.data[0].forEach(word => {
+                    isCorrect = word[1] ? 'word-correct' : 'word-false';
+                    quoteHtml += `<span class="${isCorrect}">${word[0]} </span>`;
+                });
+                divAnswer.innerHTML = quoteHtml;
+
+                // Remove the validate answer input and change it to a reload page
+                // <input type="submit" id="form-submit" value="">
+                var elem = document.getElementById("form-submit");
+                elem.parentNode.removeChild(elem);
+
+                let node = document.createElement("input");
+                node.setAttribute("id", "form-reload");
+                node.setAttribute("type", "submit");
+                node.setAttribute("value", "");
+                document.querySelector("#form").appendChild(node);
+
+                if (response.data[1] == false) {
+                    setTimeout(() => {
+                        divAnswer.classList.add("wrong-answer");
+
+                        let node = document.createElement("h2"); // Create a <li> node
+                        node.classList.add("word-correct");
+                        let textnode = document.createTextNode(response.data[
+                            2]); // Create a text node
+                        node.appendChild(textnode); // Append the text to <li>
+                        document.querySelector(".text").appendChild(
+                            node); // Append <li> to <ul> with id="myList" 
+                    }, 4000);
+                }
+            })
+    });
+</script>
+
+{% endblock %}

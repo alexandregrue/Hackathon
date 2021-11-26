@@ -40,6 +40,32 @@ body{
     align-items: center;
 }
 
+/* BUTTONS */
+
+.start_game {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background: var(--secondary-color);
+    width: 12.75rem;
+    height: 4rem;
+    border-radius: 9px;
+    margin-top: 2.8rem;
+    text-decoration: none;
+    color: white;
+    font-family: var(--title-font);
+    font-weight: 600;
+    font-size: 21px;
+}
+
+.start_game:hover {
+    color: white;
+    background-color: var(--main-color);
+    transform: scale(1.2);
+    cursor: pointer;
+    transition: all 400ms ease-in;
+}
+
 .btn-rules {
     font-family: var(--title-font);
     color: white;
@@ -52,6 +78,8 @@ body{
 .btn-index {
     margin-top: 50px;
 }
+
+/* MODAL BOX */
 
 .modal-content {
     margin-top: 50%;
