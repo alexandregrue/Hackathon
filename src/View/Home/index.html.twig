@@ -5,43 +5,50 @@
 {% endblock %}
 
 {% block content %}
-    <div class="logo_lyrics">
-    </div>
-    <section class="homepage">
-        <h1 class="slogan">
-            Have a break,<br>
-            Have a lyrics break!
-        </h1>
+<div class="logo_lyrics">
+</div>
+<section class="homepage">
+    <h1 class="slogan">
+        Have a break,<br>
+        Have a lyrics break!
+    </h1>
 
-        <a href="/game" class="start_game pulse"><span>Start the game</span></a>
-        
-        <!-- Button trigger modal -->
-        <button type="button" class="btn-rules btn-index up" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            How to play
-        </button>
+    <a href="/game" class="start_game pulse"><span>Start the game</span></a>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="modal-title" id="exampleModalLabel">Instructions</h3>    
-                    </div>
-                    <div class="modal-body">
-                        <ul class="instructions">
-                            <li>Click on "start the game".</li>
-                            <li>Listen to the short extract of the music.</li>
-                            <li>Type the words that are missing on the lyrics.</li>
-                        </ul>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn-rules up" data-bs-dismiss="modal">Close</button>
-                    </div>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn-rules btn-index up" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        How to play
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="exampleModalLabel">Instructions</h3>
+                </div>
+                <div class="modal-body">
+                    <ul class="instructions">
+                        <li>Click on <strong>"Start the game"</strong>.</li>
+                        <li>Listen to the short extract of music.</li>
+                        <li>You will have to guess the <strong>missing lyrics</strong>.</li>
+                        <li>Be careful, you can listen to it <strong>only</strong> once more.</li>
+                        <li>Each blank means a missing word.</li>
+                        <li>Type the words you think are corrects.</li>
+                        <li>Wait for the result...</li>
+                        <li>Then, correct words will be displayed in <strong>green</strong> color. Wrong ones in <strong>red</strong>.</li>
+                        <li>And then click on the green button at the bottom to listen to a new song ^^</li>
+                        <li>Have a good time here !</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn-rules up" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
-    </section>
-    <div class="people_background">
     </div>
+</section>
+<div class="people_background">
+</div>
 
 {% endblock %}

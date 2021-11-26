@@ -55,7 +55,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 3.75rem auto 0 auto;
+    margin: 1.5rem auto 0 auto;
 }
 
 .song h1 {
@@ -64,8 +64,8 @@ header {
     margin-top: 1rem;
     color: #FFFFFF;
     text-align: center;
-
 }
+
 .song h2 {
     font-size: 0.9em;
     font-family: var(--title-font);
@@ -74,40 +74,84 @@ header {
     text-align: center;
 }
 
-
-
 .lyrics {
-    height: 50vh;
-    border: 2px solid black;
-    background-image: url(../images/lyrics_logo.png);
+    background-image: url(../images/paper.png);
     background-repeat: no-repeat;
+    background-size: cover;
     background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 17.75rem;
+    height: 23.45rem;
 }
 
 .text {
     display: flex;
     flex-direction: column;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.text h2 {
+    font-size: 1em;
 }
 
 .answer {
-    height: 10vh;
+    position: fixed;
+    bottom: 0;    
     display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+form{
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
+}
+
+.answer form {
+    margin: 0 auto;
+
 }
 
 form input[type=text] {
-    width: 20.563rem;
-    height: 2.688rem;
+    padding-left: 9px;
+    width: 17.5rem;
+    height: 2.5rem;
+    margin-bottom: 1rem;
+    border-radius: 7px;
+    border: none;
 }
 
 form input[type=submit] {
-    width: 2.563rem;
-    height: 2.563rem;
+    width: 2.5rem;
+    height: 2.5rem;
     background: #7CF05F;
+    border-radius: 7px;
+    border: none;
+    margin-bottom: 1rem;
+    margin-left: 0.25rem;
+    background-image: url(../images/Yes.png);
+    background-position: center;
+    background-size: 1.25rem 1.25rem;
+    background-repeat: no-repeat;
+    font-size: 2rem;
+}
+
+#form-reload{
+    background-image: url(../images/reload.png);
+}
+
+form input[type=submit]:hover {
+    background-color: #248a0b;
+    cursor: pointer;
+    transition: 0,2s;
 }
 
 .circular{
@@ -116,14 +160,52 @@ form input[type=submit] {
     position: relative;  
 }
 
+.circular .inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    width: 100px;
+}
+
+.circular .inner a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0);
+    position: absolute;
+    z-index: 50;
+    top: -19px;
+    left: -9px;
+    border-top: 20px solid;
+    border-bottom: 20px solid ;
+    border-left: 30px solid #fff;
+    cursor: pointer;
+    display: none;
+}
+
+.circular .inner a.play {
+    display: block;
+}
+
+.circular .inner a.stop {
+    border-top: 0;
+    border-bottom: 0;
+    border-left: 0;
+}
+
 .circular .inner img{
     position: absolute;
     z-index: 6;
-    top: 50%;
-    left: 50%;
     height: 10rem;
     width: 10rem;
     margin: -5em 0 0 -5em;
+    animation-name: rotate;
+    animation-duration: var(--totaltime);
+    animation-timing-function: linear;
+}
+
+@keyframes rotate{
+    from{ transform: rotate(-360deg); }
+    to{ transform: rotate(360deg); }
 }
 
 .circular .bar {
@@ -152,13 +234,14 @@ form input[type=submit] {
     width: 100%;
     -webkit-border-radius: 100%;
     clip: rect(0px, 6rem, 12rem, 0px);
-    background: #1D3E60;
+    background: #E45A5A;
 }
 
 .circle .left .progress {
     z-index:1;
     animation: left var(--value1) linear both;
 }
+
 @keyframes left{
     100%{
         transform: rotate(180deg);
@@ -178,5 +261,56 @@ form input[type=submit] {
 @keyframes right{
     100%{
         transform: rotate(180deg);
+    }
+}
+
+/* Answer verification */
+.word-correct{
+    color:green;
+}
+
+.word-false{
+    color:red;
+}
+
+.wrong-answer{
+    text-decoration: line-through;
+}
+
+/* Media Queries screen > 1024 */
+
+@media screen and (min-width: 1024px) {
+    main {
+        display: flex;
+        margin-top: 10%;
+    }
+
+    .song {
+        gap: 20px;
+    }
+
+    .infos {
+        background-color: rgba(22, 6, 37, .3);
+        padding: 20px;
+        border-radius: 13px;
+    }
+
+    .infos h1 {
+        margin-top: 0;
+        font-size: 1.875em;
+    }
+
+    .infos h2 {
+        font-size: 1.563em;
+    }
+
+    form input[type=text] {
+        width: 40rem;
+        height:3rem;
+    }
+
+    form input[type=submit] {
+        width: 3rem;
+        height: 3rem;
     }
 }
