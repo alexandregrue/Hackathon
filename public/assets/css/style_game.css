@@ -311,11 +311,12 @@ form input[type=submit]:hover {
 }
 
 .word-false{
-    color:red;
+    color: #980000;
 }
 
 .wrong-answer{
     text-decoration: line-through;
+    text-decoration-color: #980000;
 }
 
 /* Media Queries screen > 600 */
