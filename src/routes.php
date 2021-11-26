@@ -12,4 +12,5 @@ return [
     'verify' => ['SongController', 'verifyAnswer', ['answer']],
     'blindtest' => ['BlindTestController', 'getSong'],
     'verifyblind' => ['BlindTestController', 'verifyAnswerBlind', ['title'], ['artist']],
+    'success' => ['SuccessController', 'success'],
 ];

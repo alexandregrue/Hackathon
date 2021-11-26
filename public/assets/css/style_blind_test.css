@@ -54,7 +54,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 1.5rem auto 0 auto;
+    margin: 40% auto;
 }
 
 .song h1 {
@@ -298,6 +298,10 @@ form input[type=submit]:hover {
     header {
         height: 15vmin;
     }
+
+    .song {
+        margin: 10% auto;
+    }
 }
 
 
@@ -312,14 +316,8 @@ form input[type=submit]:hover {
         height: 5.625rem;
     }
 
-    main {
-        display: flex;
-        margin-top: 10%;
-    }
-
     .song {
         gap: 20px;
-        margin: 1.5rem 8% 0 auto;
     }
 
     
